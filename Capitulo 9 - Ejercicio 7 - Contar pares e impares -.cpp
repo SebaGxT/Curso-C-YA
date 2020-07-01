@@ -1,4 +1,4 @@
-//Desarrollar un programa que permita cargar n n˙meros enteros y luego nos informe cu·ntos valores fueron pares y cu·ntos impares.
+//Desarrollar un programa que permita cargar n n√∫meros enteros y luego nos informe cu√°ntos valores fueron pares y cu√°ntos impares.
 //Librerias
 #include <stdio.h>
 #include <stdlib.h>

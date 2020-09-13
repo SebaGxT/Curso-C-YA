@@ -5,7 +5,7 @@ Realizar un programa que muestre el curso que obtuvo el mayor promedio general.*
 #include <stdlib.h>
 
 //Funciones
-float cargarnotas(float vec[],int tamanio){
+void cargarnotas(float vec[],int tamanio){
 	
 	int i;
 	

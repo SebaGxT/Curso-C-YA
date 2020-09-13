@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 //Funciones
-int cargarvec(int vec[], int tamanio){
+void cargarvec(int vec[], int tamanio){
 	
 	int i;
 	
@@ -18,7 +18,7 @@ int cargarvec(int vec[], int tamanio){
 	
 }
 
-int sumadevaloresvec(int v1[],int v2[], int vres[], int tamanio){
+void sumadevaloresvec(int v1[],int v2[], int vres[], int tamanio){
 	
 	int i;
 	

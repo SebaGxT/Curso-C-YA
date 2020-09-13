@@ -6,7 +6,7 @@ Imprimir los gastos en sueldos de cada turno.*/
 #include <stdlib.h>
 
 //Funciones
-float cargarsueldo(float vec[],int tamanio){
+void cargarsueldo(float vec[],int tamanio){
 	
 	int i;
 	

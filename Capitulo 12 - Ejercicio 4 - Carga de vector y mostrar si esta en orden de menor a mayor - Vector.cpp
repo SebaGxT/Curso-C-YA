@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 //Funciones
-int cargarvec(int v[], int tamanio){
+void cargarvec(int v[], int tamanio){
 	
 	int i;
 
@@ -18,7 +18,7 @@ int cargarvec(int v[], int tamanio){
 	
 }
 
-int ordenvec(int v[],int tamanio){
+void ordenvec(int v[],int tamanio){
 	
 	int i,cant1,cant2;
 	bool order1=false,order2=false;

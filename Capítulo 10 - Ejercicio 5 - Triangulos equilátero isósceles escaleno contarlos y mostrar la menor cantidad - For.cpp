@@ -7,14 +7,11 @@ c) Tipo de triángulo que posee menor cantidad.*/
 #include <stdlib.h>
 
 //Funcion
-int cargalado(int l){
+void cargalado(int &l){
 	
-	int la;
-	printf("\nIngrese el valor del lado %d: ",l);
-	scanf("%d",&la);
+	printf("\nIngrese el valor del lado: ");
+	scanf("%d",&l);
 	fflush(stdin);	
-		
-	return la;
 	
 }
 
@@ -36,7 +33,7 @@ int tipotriang(int la1, int la2, int la3){
 	
 }
 
-int calcularmenoroigual(int equi,int esca,int isos){
+void calcularmenoroigual(int equi,int esca,int isos){
 	
 	if(equi!=esca&&equi!=isos&&esca!=isos){
 		
@@ -80,9 +77,9 @@ int main(){
 	
 	for(i=0;i<cant;i++){
 		
-		lado1=cargalado(1);
-		lado2=cargalado(2);
-		lado3=cargalado(3);
+		cargalado(lado1);
+		cargalado(lado2);
+		cargalado(lado3);
 		
 		triang=tipotriang(lado1,lado2,lado3);
 		

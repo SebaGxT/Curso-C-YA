@@ -6,16 +6,12 @@ Informar cuántos puntos se han ingresado en el primer, segundo, tercer y cuarto 
 
 //Funcion
 
-int coordenadas(){
-	
-	int coor;
-	
+void coordenadas(int &coor){
+
 	printf("\nIngrese la coordenada: ");
 	scanf("%d",&coor);
 	fflush(stdin);
-	
-	return coor;
-	
+
 }
 
 int detectarcuadrante(int x,int y){
@@ -72,8 +68,8 @@ int main(){
 	
 	for(i=0;i<cantpro;i++){
 		
-		x=coordenadas();
-		y=coordenadas();
+		coordenadas(x);
+		coordenadas(y);
 		cuadrante=detectarcuadrante(x,y);
 		
 		if(cuadrante==0){

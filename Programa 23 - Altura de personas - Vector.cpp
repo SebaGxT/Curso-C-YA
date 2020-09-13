@@ -30,7 +30,7 @@ int cargadepersonas(){
 	
 }
 
-float cargaralt(float vec[],int tamanio){
+void cargaralt(float vec[],int tamanio){
 	
 	int i;
 	

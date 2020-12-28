@@ -10,7 +10,6 @@ c) Mostrar por pantalla un mensaje que indique cual de los tres turnos tiene un 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
 //Funciones
 
@@ -24,26 +23,22 @@ int promedio(int n,int cant){
 	
 }
 
-int edad(){
-	
-	int ed;
-	
+void edad(int &ed){
+
 	do{
 			
 			printf("\nIngrese la edad del estudiante: ");
 			scanf("%d",&ed);
 			fflush(stdin);
 			
-			if(ed<=0){
+			if(ed<1){
 				
 				printf("\nValor incorrecto. Vuelva a ingresar porfavor.");
 				
 			}
 			
-		}while(ed<=0);
-		
-	return ed;
-	
+		}while(ed<1);
+
 }
 
 //Main
@@ -51,9 +46,9 @@ int main(){
 	
 //Variables
 	
-	int i,cant,ed,turndia,turntarde,turnnoche,cantd,cantt,cantn,promdia,promtarde,promnoche;
-	char turn[1];
-	bool valid=true;
+	int i,cant,eda,turndia,turntarde,turnnoche,cantd,cantt,cantn,promdia,promtarde,promnoche;
+	char turn;
+	bool valid=false;
 	
 	turndia=0;
 	turntarde=0;
@@ -62,14 +57,27 @@ int main(){
 	cantt=0;
 	cantn=0;
 	cant=0;
+	promdia=0;
+	promtarde=0;
+	promnoche=0;
 	
 //Ingreso de datos
 	
-	printf("Ingreso de estudiantes en los turnos por edad\n\n");
-	printf("Ingrese cantidad de estudiantes a procesar: ");
-	scanf("%d",&cant);
-	fflush(stdin);
-
+	do{
+		
+		printf("Ingreso de estudiantes en los turnos por edad\n\n");
+		printf("Ingrese cantidad de estudiantes a procesar: ");
+		scanf("%d",&cant);
+		fflush(stdin);
+		
+		if(cant<3){
+			
+			printf("\n\nDebe ingresar al menos tres estudiantes.\n\n");
+			
+		}
+		
+	}while(cant<3);
+	
 //Proceso
 	
 	for(i=0;i<cant;i++){
@@ -77,39 +85,53 @@ int main(){
 		do{
 			
 			printf("\nIngrese el turno (M,T,N): ");
-			gets(turn);
+			turn=getchar();
 			fflush(stdin);
-		
-			toupper(turn[0]);
-		
-			if(strcmp(turn,"M")==0){
 			
-				ed=edad();
-				turndia+=ed;
-				cantd++;
-				valid=false;
+			switch(turn){
 				
-			}else if(strcmp(turn,"T")==0){
-			
-				ed=edad();
-				turntarde+=ed;
-				cantt++;
-				valid=false;
-			
-			}else if(strcmp(turn,"N")==0){
-			
-				ed=edad();
-				turnnoche+=ed;
-				cantn++;
-				valid=false;
-			
-			}else{
-			
-				printf("\nTurno ingresado inv%clido.",160);
-			
+				case 'M':
+				case 'm':{
+					
+					edad(eda);
+					turndia+=eda;
+					cantd++;
+					valid=true;
+					break;
+					
+				}
+				
+				case 'T':
+				case 't':{
+					
+					edad(eda);
+					turntarde+=eda;
+					cantt++;
+					valid=true;
+					break;
+					
+				}
+				
+				case 'N':
+				case 'n':{
+					
+					edad(eda);
+					turnnoche+=eda;
+					cantn++;
+					valid=true;
+					break;
+					
+				}
+				
+				default:		
+					
+					printf("\nTurno ingresado inv%clido.",160);
+					
 			}
 				
-		}while(valid);
+		}while(valid==false);
+		
+		valid=false;
 				
 	}
 	
@@ -119,7 +141,7 @@ int main(){
 	
 //Salida de datos
 	
-	printf("\n\nEl promedio de edad del turno mañana: %d",promdia);
+	printf("\n\nEl promedio de edad del turno ma%cana: %d",164,promdia);
 	printf("\nEl promedio de edad del turno tarde: %d",promtarde);
 	printf("\nEl promedio de edad del turno noche: %d",promnoche);
 	
@@ -127,7 +149,7 @@ int main(){
 		
 		if(promdia<promtarde&&promdia<promnoche){
 		
-			printf("\nEl turno con menor promedio es: Mañana\n\n");
+			printf("\nEl turno con menor promedio es: Ma%cana\n\n",164);
 		
 		}else if(promtarde<promdia&&promtarde<promnoche){
 	
@@ -175,7 +197,7 @@ int main(){
 			
 		}else{
 			
-			printf("\nEl turno con menor promedio es: Mañana\n\n");
+			printf("\nEl turno con menor promedio es: Ma%cana\n\n",164);
 			
 		}
 		

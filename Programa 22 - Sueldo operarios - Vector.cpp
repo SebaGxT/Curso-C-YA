@@ -6,25 +6,21 @@ Empleando un vector solo se requiere definir un único nombre y accedemos a cada 
 #include <stdlib.h>
 
 //Funciones
-float cargarsueldo(int x){
-	
-	float sueldo;
+void cargarsueldo(float sue[],int x){
 	
 	do{
 		
-		printf("\nIngrese el sueldo del empleado %d: ",x+1);
-		scanf("%f",&sueldo);
+		printf("\nIngrese el sueldo del empleado: ");
+		scanf("%f",&sue[x]);
 		fflush(stdin);	
 		
-		if(sueldo<=0.0){
+		if(sue[x]<=0.0){
 			
 			printf("\n\nError el importe ingresado no puede ser cero o menor. Vuelva a ingresar importe por favor.\n\n");
 			
 		}
 		
-	}while(sueldo<=0.0);		
-	
-	return sueldo;
+	}while(sue[x]<=0.0);		
 	
 }
 
@@ -53,33 +49,24 @@ int main(){
 		}	
 		
 	}while(empleados<0);
-	
-	if(empleados>0){
 		
-			printf("\nCargue los sueldos con 2 decimales.\n\n");
+	printf("\nCargue los sueldos con 2 decimales.\n\n");
 	
 //Proceso
 	
-		for(i=0;i<empleados;i++){
+	for(i=0;i<empleados;i++){
 		
-			sueldos[i]=cargarsueldo(i);
+		cargarsueldo(sueldos,i);
 		
-		}
+	}
 	
-		printf("\n");
+	printf("\n");
 	
 //Salida de datos
 	
-		for(i=0;i<empleados;i++){
+	for(i=0;i<empleados;i++){
 		
-			printf("\nEl sueldo del empleado %d: %.2f",i+1,sueldos[i]);
-		
-		}
-		
-		
-	}else{
-		
-		printf("\n\nSe finaliza la carga de sueldos sin ingresar datos.\n\n");
+		printf("\nEl sueldo del empleado %d: %.2f",i+1,sueldos[i]);
 		
 	}
 

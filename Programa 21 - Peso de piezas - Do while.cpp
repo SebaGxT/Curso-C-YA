@@ -7,7 +7,14 @@ b) La cantidad total de piezas procesadas.
 #include <stdlib.h>
 
 //Funciones
-determinarpeso(float pe,float min,float max){
+void pausar(){
+	
+	printf("\n\n\n\n");
+	system("pause");
+		
+}
+
+int determinarpeso(float pe,float min,float max){
 	
 	int p;
 	
@@ -26,6 +33,24 @@ determinarpeso(float pe,float min,float max){
 	}
 	
 	return p;
+	
+}
+
+void carga_float(float &m,char cade[30]){
+	
+	do{
+		
+		printf("\n%s",cade);
+		scanf("%f",&m);
+		fflush(stdin);
+		
+		if(m<0.0){
+			
+			printf("\n\nValor incorrecto. Por favor ingrese un valor positivo.\n\n");
+			
+		}
+		
+	}while(m<0.0);
 	
 }
 
@@ -50,33 +75,8 @@ int main(){
 	
 	do{
 		
-		do{
-		
-			printf("\nIngrese el peso minimo del rango: ");
-			scanf("%f",&min);
-			fflush(stdin);
-		
-			if(min<=0.0){
-			
-				printf("\n\nValor incorrecto. Por favor ingrese un valor positivo.\n\n");
-			
-			}
-		
-		}while(min<=0.0);
-	
-		do{
-		
-			printf("\nIngrese el peso m%cximo del rango: ",160);
-			scanf("%f",&max);
-			fflush(stdin);
-		
-			if(max<=0.0){
-			
-				printf("\n\nValor incorrecto. Por favor ingrese un valor positivo.\n\n");
-			
-			}
-		
-		}while(max<=0.0);
+		carga_float(max,"Ingrese el peso maximo del rango: ");
+		carga_float(min,"Ingrese el peso minimo del rango: ");
 		
 		if(max<min){
 			
@@ -92,20 +92,7 @@ int main(){
 	
 	do{
 		
-		do{
-		
-			printf("\nIngrese el peso de la pieza: ");
-			scanf("%f",&pieza);
-			fflush(stdin);
-			
-			if(pieza<0.0){
-				
-				printf("\n\nValor incorrecto. Por favor ingrese un valor positivo.\n\n");
-				
-			}
-			
-		}while(pieza<0.0);
-		
+		carga_float(pieza,"\nIngrese el peso de la pieza: ");		
 		
 		if(pieza!=0.0){
 			
@@ -140,8 +127,7 @@ int main(){
 
 //Pausa y fin de programa
 	
-	printf("\n\n\n\n");
-	system("pause");
+	pausar();
 	return 0;	
 	
 }
